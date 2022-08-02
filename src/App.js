@@ -3,6 +3,8 @@ import "./index.css"
 
 const App = () => {
   const [pokemon, setPokemon] = useState(null)
+  const [eggClicked, setClick] = useState(false)
+
 
   useEffect(() => {
     fetchPokemon(2)
@@ -16,11 +18,19 @@ const App = () => {
     setPokemon(response)
   }
 
+
+  // handleEggClick = () => {
+  //   setClick({
+  //     pokemon: true
+  //   })
+  // }
+
   console.log(pokemon);
 
   return (
     <>
       <main>
+          {/* <img src="https://i.gifer.com/origin/30/305ff766c302230a4cbe848a447e7758.gif" alt="click to egg" onClick={handleEggClick} />  && eggClicked !== false */}
           { pokemon !== null &&
             <div className='card_container'>
               <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
