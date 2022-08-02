@@ -61,3 +61,20 @@ main {
 .card_container p {
   border-bottom: 2px solid rgba(0, 124, 41, 0.2);
 }
+
+.card_container ul {
+  padding-left: 0;
+}
+
+
+.card_container ul li {
+  list-style-type: none;
+  text-align: center;
+
+}
+
+.card_container ul li:before {
+  content: "⚡ "; 
+  text-align: center;
+
+ }

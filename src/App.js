@@ -24,10 +24,10 @@ const App = () => {
           { pokemon !== null &&
             <div className='card_container'>
               <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
-              <h2 className='titre'>{pokemon.name}</h2>
-              <p className='pt-1'>Height: {pokemon.height}</p>
-              <p>Weight: {pokemon.weight}</p>
-              <p>Types:</p>
+              <h2 className='titre'>🔥 {pokemon.name} 🔥</h2>
+              <p className='pt-1'>🔎 Height: {pokemon.height} 🔍</p>
+              <p>🔎  Weight: {pokemon.weight} 🔍</p>
+              <p>🧬 Types: 🧬</p>
               <ul>{pokemon.types.map((type)=>{
                 return <li key={type.slot}>{type.type.name}</li>
                })}</ul>
