@@ -24,13 +24,14 @@ const App = () => {
           { pokemon !== null &&
             <div className='card_container'>
               <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
-              <h2>Name: {pokemon.name}</h2>
-              <p>height {pokemon.height}</p>
-              <p>weight {pokemon.weight}</p>
+              <h2 className='titre'>{pokemon.name}</h2>
+              <p className='pt-1'>Height: {pokemon.height}</p>
+              <p>Weight: {pokemon.weight}</p>
+              <p>Types:</p>
               <ul>{pokemon.types.map((type)=>{
                 return <li key={type.slot}>{type.type.name}</li>
                })}</ul>
-              <button onClick={() => fetchPokemon(Math.floor(Math.random()*151)+1)}>show random Pokemon</button>
+              <button onClick={() => fetchPokemon(Math.floor(Math.random()*151)+1)}>Show random Pokemon</button>
             </div>
           }
       </main>
