@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import "./index.css"
 
 const App = () => {
   const [pokemon, setPokemon] = useState(null)
@@ -21,11 +22,14 @@ const App = () => {
     <>
       <main>
           { pokemon !== null &&
-            <div className='card'>
-              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <div className='card_container'>
+              <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
               <h2>Name: {pokemon.name}</h2>
               <p>height {pokemon.height}</p>
               <p>weight {pokemon.weight}</p>
+              <ul>{pokemon.types.map((type)=>{
+                return <li key={type.slot}>{type.type.name}</li>
+               })}</ul>
               <button onClick={() => fetchPokemon(Math.floor(Math.random()*151)+1)}>show random Pokemon</button>
             </div>
           }
