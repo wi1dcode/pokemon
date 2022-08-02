@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react'
 
-function App() {
+const App = () => {
+  const [pokemon, setPokemon] = useState(null)
+
+  useEffect(() => {
+    fetchPokemon(2)
+  }, [])
+
+
+
+  const fetchPokemon = async (ID) => {
+    const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${ID}`)
+    const response = await request.json()
+    setPokemon(response)
+  }
+
+  console.log(pokemon);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <main>
+
+          <div className='card'>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <h2>Name: {pokemon.name}</h2>
+            <p>height {pokemon.height}</p>
+            <p>weight {pokemon.weight}</p>
+            <button onClick={() => fetchPokemon(Math.floor(Math.random()*151)+1)}>show random Pokemon</button>
+          </div>
+
+      </main>
+    </>
+  )
 }
 
-export default App;
+export default App
